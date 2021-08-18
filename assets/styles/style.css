@@ -1,0 +1,44 @@
+body {
+  width: 60%;
+  margin: auto;
+  color: #465560;
+}
+
+.open {
+  color: #149b7b;
+  margin: 20px 0;
+}
+
+.phone {
+  color: #f7941f;
+  margin: 20px 0;
+}
+
+.logo-mobile {
+  display: none;
+}
+
+.card-wrap {
+  border: 1px solid slategray;
+  height: 80vh;
+  overflow: auto;
+}
+
+.map-wrap {
+  background-color: violet;
+  height: 80vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo-mobile {
+    display: block;
+  }
+
+  .logo-desk {
+    display: none;
+  }
+
+  body {
+    width: 100%;
+  }
+}
