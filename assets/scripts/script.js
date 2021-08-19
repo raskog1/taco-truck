@@ -1,3 +1,5 @@
+const truckData = [];
+
 $(document).ready(function () {
   fetch("https://my.api.mockaroo.com/locations.json?key=a45f1200")
     .then((response) => {
@@ -24,7 +26,9 @@ $(document).ready(function () {
                     } data-lon=${element.longitude}
                       >Directions</button
                     >
-                    <button class="btn btn-secondary" style="width: 47%" data-bs-toggle="modal" data-bs-target="#details"
+                    <button class="btn btn-secondary more-info" style="width: 47%" data-bs-toggle="modal" data-bs-target="#details" data-info=${JSON.stringify(
+                      element
+                    )}
                       >More Info</button
                     >
                   </div>
@@ -33,12 +37,6 @@ $(document).ready(function () {
         );
       }
     });
-
-  // DEMO
-  //   $(".map").attr(
-  //     "src",
-  //     `https://maps.googleapis.com/maps/api/staticmap?center=32.823943,-117.150259&zoom=13&scale=2&size=200x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:1%7C32.823943,-117.150259&key=${key}`
-  //   );
 });
 
 function showMap(lat, lon) {
@@ -48,13 +46,38 @@ function showMap(lat, lon) {
   });
 }
 
-// Event Listener for Directions buttons, extracting lat/lon from data-attributes
-$(".card-wrap").on("click", ".directions", function () {
+// Event Listener for cards, extracting lat/lon from data-attributes
+$("#card-wrap").on("click", ".card", function () {
   const lat = $(this).data("lat");
   const lon = $(this).data("lon");
 
   $(".map").attr(
     "src",
-    `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=13&scale=2&size=320x400&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:1%7C32.823943,-117.150259&key=${key}`
+    `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=13&scale=2&size=320x450&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:1%7C32.823943,-117.150259&key=${key}`
   );
+});
+
+// Event Listener for Directions buttons to redirect to Google Maps
+$("#card-wrap").on("click", ".directions", function () {
+  const lat = $(this).data("lat");
+  const lon = $(this).data("lon");
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (data) {
+      if (data.coords) {
+        window.location = `https://maps.google.fr/maps?saddr=${data.coords.latitude},${data.coords.longitude}&daddr=${lat},${lon}`;
+      }
+    });
+  }
+});
+
+// Event Listener for More Info buttons
+$("#card-wrap").on("click", ".more-info", function () {
+  const data = $(this).data("info");
+  console.log(data);
+});
+
+// Footer Event Listener to swap "active" class between links
+$("footer").on("click", "a", function () {
+  $(this).addClass("active").siblings().removeClass("active");
 });

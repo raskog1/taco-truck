@@ -1,59 +1,112 @@
+:root {
+  --rio-orange: #f7941f;
+  --rio-teal: #149b7b;
+  --rio-grey: #465560;
+}
+
 body {
-  width: 60%;
+  width: 940px;
   margin: auto;
-  color: #465560;
+  color: var(--rio-grey);
+}
+
+h1 {
+  padding-left: 24px;
 }
 
 main {
   height: 100vh;
 }
 
-main .container-lg {
+/* main .container-lg {
   height: 70%;
+} */
+
+footer {
+  position: fixed;
+  background-color: #fff;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  color: var(--rio-orange);
+  border-top: 1px solid var(--rio-grey);
+}
+
+footer a,
+footer a:visited {
+  line-height: 50px;
+  text-decoration: none;
+  color: var(--rio-grey);
+}
+
+footer .active,
+footer .active:visited {
+  background-color: var(--rio-orange);
+  color: #fff;
 }
 
 .open {
-  color: #149b7b;
+  color: var(--rio-teal);
   margin: 20px 0;
 }
 
 .phone,
 .drive {
-  color: #f7941f;
-  margin: 20px 0;
+  color: var(--rio-orange);
 }
 
-.logo-mobile {
-  display: none;
-}
-
-.card-wrap {
+#card-wrap {
   border: 1px solid slategray;
-  height: 500px;
+  height: 585px;
   overflow: auto;
 }
 
-.map-wrap {
+#map-wrap {
   position: relative;
-  background-color: violet;
-  height: 500px;
+  background-color: lightgray;
+  height: 585px;
+  overflow: hidden;
+}
+
+#map {
+  height: 100%;
+}
+
+.map {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
 }
 
 .modal {
   position: absolute;
-  height: 90%;
 }
 
 .modal a {
   width: 100%;
 }
 
+.modal h6 {
+  font-size: 0.9em;
+}
+
 .modal-image {
   width: 100%;
+  height: 150px;
+  overflow: hidden;
 }
 
 .modal-image img {
+  position: relative;
+  top: -50px;
   width: 100%;
+}
+
+.modal-header,
+.modal-footer {
+  border: 0px;
 }
 
 .image {
@@ -61,15 +114,16 @@ main .container-lg {
 }
 
 @media only screen and (max-width: 600px) {
-  .logo-mobile {
-    display: block;
-  }
-
-  .logo-desk {
-    display: none;
-  }
-
   body {
     width: 100%;
+  }
+
+  header {
+    background-color: var(--rio-grey);
+    color: #fff;
+  }
+
+  header .map-pin {
+    filter: invert(1);
   }
 }
