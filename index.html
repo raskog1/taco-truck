@@ -77,6 +77,72 @@
 
         <!-- Map Display -->
         <div class="map-wrap col-lg-6 col-12">
+          <div
+            class="modal fade p-2"
+            id="details"
+            tabindex="-1"
+            aria-labelledby="detailsLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button
+                    type="button"
+                    class="btn-close d-block float-end"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="modal-image">
+                    <img src="./assets/images/taco1.jpg" alt="Taco truck" />
+                  </div>
+
+                  <div class="modal-address">
+                    <h5 class="card-title">Taco Truck 1</h5>
+                    <h6>1234 Clairemont Street</h6>
+                    <h6>San Diego, CA 95131</h6>
+                    <div class="modal-contact row">
+                      <h6 class="phone col-6">
+                        <img src="./assets/images/phone-icon.png" />123-456-7890
+                      </h6>
+                      <h6 class="drive col-6">
+                        <img src="./assets/images/direction-icon.png" />Get
+                        Directions
+                      </h6>
+                    </div>
+                  </div>
+
+                  <div class="modal-hours row">
+                    <div class="col-4">
+                      <h6>Monday</h6>
+                      <h6>Tuesday</h6>
+                      <h6>Wednesday</h6>
+                      <h6>Thursday</h6>
+                      <h6>Friday</h6>
+                      <h6>Saturday</h6>
+                      <h6>Sunday</h6>
+                    </div>
+                    <div class="col-8">
+                      <h6>10:00 AM - 9:00 PM</h6>
+                      <h6>10:00 AM - 9:00 PM</h6>
+                      <h6>10:00 AM - 9:00 PM</h6>
+                      <h6>10:00 AM - 9:00 PM</h6>
+                      <h6>10:00 AM - 9:00 PM</h6>
+                      <h6>10:00 AM - 9:00 PM</h6>
+                      <h6>10:00 AM - 9:00 PM</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a type="button" class="btn btn-secondary">
+                    View Full Details
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
           <img class="map" />
         </div>
       </div>
@@ -95,6 +161,8 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
+
+    <script src="./key.js"></script>
     <script src="./assets/scripts/script.js"></script>
   </body>
 </html>
