@@ -43,6 +43,7 @@ $(document).ready(function () {
     });
 });
 
+// Displays map based on lat/lon fed in from card data attribute
 function showMap(lat, lon) {
   const map = new google.maps.Map(document.querySelector("#map"), {
     center: { lat: lat, lng: lon },
