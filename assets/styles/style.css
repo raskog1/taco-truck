@@ -14,13 +14,21 @@ h1 {
   padding-left: 24px;
 }
 
-main {
-  height: 100vh;
+p {
+  margin-bottom: 0;
 }
 
-/* main .container-lg {
-  height: 70%;
-} */
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+main {
+  margin-top: 80px;
+}
 
 footer {
   position: fixed;
@@ -57,7 +65,7 @@ footer .active:visited {
 }
 
 #card-wrap {
-  border: 1px solid slategray;
+  border: 1px solid var(--rio-grey);
   height: 585px;
   overflow: auto;
 }
@@ -73,12 +81,7 @@ footer .active:visited {
   height: 100%;
 }
 
-.map {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-}
+/* Modal Styling */
 
 .modal {
   position: absolute;
@@ -109,9 +112,7 @@ footer .active:visited {
   border: 0px;
 }
 
-.image {
-  height: 300px;
-}
+/* Mobile Responsive for Phones */
 
 @media only screen and (max-width: 600px) {
   body {
@@ -125,5 +126,20 @@ footer .active:visited {
 
   header .map-pin {
     filter: invert(1);
+  }
+
+  /* Offset footer element */
+  main {
+    margin-bottom: 50px;
+    margin-top: 60px;
+  }
+
+  .container-lg {
+    padding: 0;
+  }
+
+  #card-wrap {
+    overflow: visible;
+    height: 100%;
   }
 }

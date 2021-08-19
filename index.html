@@ -13,19 +13,29 @@
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
   <body>
     <header>
-      <nav
-        class="
-          navbar navbar-light navbar-expand-lg
-          d-flex
-          justify-content-between
-        "
-      >
+      <nav class="navbar navbar-light navbar-expand-lg justify-content-between">
         <div class="container-fluid">
-          <div class="navbar-toggler-icon d-block d-md-none"></div>
+          <!-- <div class="navbar-toggler-icon d-block d-md-none"></div> -->
+          <a href="#card-wrap" class="d-block d-md-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="lightgray"
+              class="bi bi-list"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+          </a>
           <img
             src="./assets/images/rioseo-logo.png"
             alt="Rio SEO logo"
@@ -51,11 +61,13 @@
               </li>
             </ul>
           </div>
-          <img
-            class="map-pin d-block d-md-none"
-            src="./assets/images/location-icon.png"
-            alt="Map locator icon"
-          />
+          <a href="#map-wrap" class="d-block d-md-none">
+            <img
+              class="map-pin"
+              src="./assets/images/location-icon.png"
+              alt="Map locator icon"
+            />
+          </a>
         </div>
       </nav>
     </header>
@@ -67,8 +79,8 @@
         <!-- Food Truck Card Display -->
         <div class="col-lg-6 col-12 p-3" id="card-wrap"></div>
 
-        <!-- Map Display -->
-        <div class="col-lg-6 col-12" id="map-wrap">
+        <!-- Map/Modal Display -->
+        <div class="col-lg-6 col-12 p-0" id="map-wrap">
           <!-- More Info Modal -->
           <div
             class="modal fade p-2"
@@ -78,70 +90,16 @@
             aria-hidden="true"
           >
             <div class="modal-dialog m-0">
-              <div class="modal-content">
-                <div class="modal-header p-2">
-                  <button
-                    type="button"
-                    class="btn-close d-block float-end"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body p-2">
-                  <div class="modal-image">
-                    <img src="./assets/images/taco1.jpg" alt="Taco truck" />
-                  </div>
-
-                  <div class="modal-address">
-                    <h5 class="card-title">Taco Truck 1</h5>
-                    <h6>1234 Clairemont Street</h6>
-                    <h6>San Diego, CA 95131</h6>
-                    <div class="modal-contact p-1 row">
-                      <h6 class="phone col-6">
-                        <img src="./assets/images/phone-icon.png" />123-456-7890
-                      </h6>
-                      <h6 class="drive col-6">
-                        <img src="./assets/images/direction-icon.png" />Get
-                        Directions
-                      </h6>
-                    </div>
-                  </div>
-
-                  <div class="modal-hours row">
-                    <div class="col-4">
-                      <h6>Monday</h6>
-                      <h6>Tuesday</h6>
-                      <h6>Wednesday</h6>
-                      <h6>Thursday</h6>
-                      <h6>Friday</h6>
-                      <h6>Saturday</h6>
-                      <h6>Sunday</h6>
-                    </div>
-                    <div class="col-8">
-                      <h6>10:00 AM - 9:00 PM</h6>
-                      <h6>10:00 AM - 9:00 PM</h6>
-                      <h6>10:00 AM - 9:00 PM</h6>
-                      <h6>10:00 AM - 9:00 PM</h6>
-                      <h6>10:00 AM - 9:00 PM</h6>
-                      <h6>10:00 AM - 9:00 PM</h6>
-                      <h6>10:00 AM - 9:00 PM</h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer p-2">
-                  <a type="button" class="btn btn-secondary">
-                    View Full Details
-                  </a>
-                </div>
-              </div>
+              <div class="modal-content"></div>
             </div>
           </div>
+
+          <!-- Google Maps -->
           <div
             id="map"
             class="d-flex justify-content-center align-items-center"
           >
             Click a location card to load a map
-            <img class="map" />
           </div>
         </div>
       </div>
@@ -166,7 +124,13 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./key.js"></script>
+    <!-- Google Maps Script -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=&v=weekly&channel=2"
+      async
+    ></script>
+
+    <!-- <script src="./key.js"></script> -->
     <script src="./assets/scripts/script.js"></script>
   </body>
 </html>
