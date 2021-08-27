@@ -1,4 +1,14 @@
 const truckData = [];
+const days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+const day = days[new Date().getDay()];
 
 $(document).ready(function () {
   fetch("https://my.api.mockaroo.com/locations.json?key=a45f1200")
@@ -8,18 +18,19 @@ $(document).ready(function () {
     .then((data) => {
       for (let i = 0; i < 3; i++) {
         const element = data[i];
+        const closing = element[`${day}_close`];
 
         $("#card-wrap").append(
-          `<div class="card mb-3" data-lat=${element.latitude} data-lon=${
-            element.longitude
-          } style="width: 100%">
+          `<div class="card mb-3" tabindex="0" data-lat=${
+            element.latitude
+          } data-lon=${element.longitude} style="width: 100%">
                 <div class="card-body">
                   <h2 class="card-title">Taco Truck ${i + 1}</h2>
                   <p>${element.address}</p>
                   <p>${element.city}, ${element.state} ${
             element.postal_code
           }</p>
-                  <p class="open">Open today until 9pm</p>
+                  <p class="open">Open today until ${closing}</p>
                   <p class="phone">
                     <img src="./assets/images/phone-icon.png" />123-456-7890
                   </p>
@@ -143,6 +154,13 @@ $("#card-wrap").on("click", ".more-info", function (e) {
                     View Full Details
                   </a>
             </div>`);
+});
+
+$("#details").on("hide.bs.modal", function () {
+  setTimeout(() => {
+    const target = document.activeElement.closest(".card");
+    target.scrollIntoView({ block: "center" });
+  }, 500);
 });
 
 // Footer Event Listener to swap "active" class between links
